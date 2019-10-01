@@ -7,7 +7,7 @@ from game_models import Game, Version, Edition, Piece
 # Create your models here.
 
 class Collection(models.Model):
-    id = models.AutoField(primary_key=True)
+    user_id = models.BigIntegerField()
 
 class Condition(models.Model):
     condition_description = models.TextField()
