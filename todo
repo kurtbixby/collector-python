@@ -1,0 +1,8 @@
+Generate some sample/test data
+Create data loader script
+
+Mock up API endpoints
+    Add,Update,Delete each model
+Write tests for endpoints
+    Add, Update, Delete each model alone
+    
