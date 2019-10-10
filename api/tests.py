@@ -1,3 +1,1 @@
-from django.test import TestCase
-
-# Create your tests here.
+from .model_serializer_tests import PlatformSerializerTests, RegionSerializerTests, CompanySerializerTests, CountrySerializerTests, PieceSerializerTests, EditionSerializerTests, VersionSerializerTests, GameSerializerTests
