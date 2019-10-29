@@ -2,17 +2,10 @@ from collections import OrderedDict
 
 from django.test import TestCase
 
-from .game_models import Game, Platform, Region, Company, Version, Country, Piece, Edition
-from .serializers import GameSerializer, PlatformSerializer, RegionSerializer, CompanySerializer, VersionSerializer, CountrySerializer, PieceSerializer, EditionSerializer
+from api.models import Game, Platform, Region, Company, Version, Country, Piece, Edition
+from api.serializers import GameSerializer, PlatformSerializer, RegionSerializer, CompanySerializer, VersionSerializer, CountrySerializer, PieceSerializer, EditionSerializer
 
 # Create your tests here.
-'''
-class GameSerializerTests(TestCase):
-    def test_full_serialization(self):
-        game = Game()
-        serializer = GameSerializer(instance=game)
-        self.assertEqual(set(serializer.data.keys), )
-'''
 
 def test_flat_serialization(test_class, class_name, expected_fields):
     instance = globals()[class_name](**expected_fields)

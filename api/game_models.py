@@ -3,16 +3,26 @@ from django.db import models
 # Create your models here.
 
 class Game(models.Model):
-    id = models.AutoField(primary_key=True)
+    game_name = models.TextField()
+    aliases = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return '%s' % (self.game_name)
 
 class Platform(models.Model):
     platform_name = models.TextField()
+    manufacturer = models.TextField()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['manufacturer', 'platform_name'], name='unique-manufacturer-platform')
+        ]
 
     def __str__(self):
         return '%s' % (self.platform_name)
 
 class Region(models.Model):
-    region_code = models.TextField()
+    region_code = models.TextField(unique=True)
 
     def __str__(self):
         return '%s' % (self.region_code)
@@ -32,12 +42,18 @@ class Version(models.Model):
     publisher = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True, related_name='versions_published')
     developer = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True, related_name='versions_developed')
 
+    def __str__(self):
+        return '%s' % (self.version_name)
+
 class Country(models.Model):
-    country_code = models.TextField()
+    country_code = models.TextField(unique=True)
     country_name = models.TextField()
+
+    def __str__(self):
+        return '%s: %s' % (self.country_code, self.country_name)
     
 class Piece(models.Model):
-    piece_type = models.TextField()
+    piece_type = models.TextField(unique=True)
 
     def __str__(self):
         return '%s' % (self.piece_type)
@@ -47,3 +63,6 @@ class Edition(models.Model):
     edition_name = models.TextField()
     country = models.ForeignKey(Country, on_delete=models.PROTECT)
     pieces = models.ManyToManyField(Piece)
+
+    def __str__(self):
+        return '%s' % (self.edition_name)
