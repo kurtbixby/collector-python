@@ -1,0 +1,2 @@
+from api.tests.model_serializer_tests import PlatformSerializerTests, RegionSerializerTests, CompanySerializerTests, CountrySerializerTests, PieceSerializerTests, EditionSerializerTests, VersionSerializerTests, GameSerializerTests
+from api.tests.view_endpoint_tests import VersionAPITests

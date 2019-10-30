@@ -37,8 +37,6 @@ class VersionAPITests(APITestCase):
     def setUp(self):
         game = Game.objects.create(game_name='Dragon Quest XI')
         self.assertEqual(game.pk, 1)
-        # platform = Platform.objects.create(platform_name='NX', manufacturer='Nintendo')
-        # self.assertEqual(platform.pk, 1)
 
     def test_version_post_creation_full(self):
         # url = reverse()

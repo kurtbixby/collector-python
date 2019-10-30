@@ -60,7 +60,6 @@ class VersionSerializer(serializers.ModelSerializer):
         version = ModelObjectCreator.create_version(validated_data)
 
         return version
-        
 
 class GameSerializer(serializers.ModelSerializer):
     versions = VersionSerializer(many=True, required=False)

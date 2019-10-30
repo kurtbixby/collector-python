@@ -155,8 +155,6 @@ class GameSerializerTests(TestCase):
             version_name='DQXI',
             game=game
         )
-        
-        # fields = 
 
         fields = {
             'id': 1,
